@@ -82,7 +82,7 @@ def main():
         if Path("model/model.safetensors").exists():
             print("⏳ Cargando modelo (esto puede tomar 30 segundos)...")
             model = load_model("./model")
-            print(f"✅ Modelo cargado: {model.get_model_info()['model_name']}")
+            print(f"✅ Modelo cargado: paraphrase-multilingual-mpnet-base-v2")
             
             # Test rápido
             print("⏳ Test rápido de inferencia...")
