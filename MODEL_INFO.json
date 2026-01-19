@@ -1,0 +1,126 @@
+{
+  "model_name": "modelo_entrenado_multiloss",
+  "version": "1.0.0",
+  "created_date": "2025-12-30",
+  "last_updated": "2026-01-08",
+  "portable": true,
+  
+  "base_model": {
+    "name": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+    "embedding_dimension": 768,
+    "languages": [
+      "english",
+      "spanish",
+      "portuguese",
+      "french",
+      "german",
+      "italian",
+      "dutch",
+      "romanian",
+      "chinese"
+    ]
+  },
+  
+  "training": {
+    "datasets": {
+      "main": {
+        "type": "CosineSimilarityLoss",
+        "samples": 5000,
+        "description": "Pares de textos con score de similitud"
+      },
+      "triplets": {
+        "type": "TripletLoss",
+        "samples": 3000,
+        "description": "Tripletas (anchor, positive, negative)"
+      },
+      "similar": {
+        "type": "MultipleNegativesRankingLoss",
+        "samples": 2000,
+        "description": "Pares de textos similares"
+      }
+    },
+    "total_examples": 10000,
+    "epochs": 3,
+    "batch_size": 16,
+    "warmup_steps": 500,
+    "learning_rate": 0.00002,
+    "training_time_seconds": 9021,
+    "training_time_formatted": "2h 30m 21s"
+  },
+  
+  "performance": {
+    "similarity_pairs": {
+      "improvement_vs_original": "+33.05%",
+      "average_similarity_trained": 0.8795,
+      "average_similarity_original": 0.5490
+    },
+    "triplet_ordering": {
+      "accuracy_trained": "80.0%",
+      "accuracy_original": "100.0%"
+    },
+    "use_case": "Búsqueda y ranking de candidatos en reclutamiento"
+  },
+  
+  "domain": {
+    "industry": "Recruitment / HR",
+    "domain": "IT / Technology",
+    "primary_use": "Candidate matching and similarity search",
+    "secondary_uses": [
+      "Job description matching",
+      "Skill clustering",
+      "Resume ranking",
+      "Candidate grouping"
+    ]
+  },
+  
+  "specifications": {
+    "size_mb": 1081.81,
+    "format": "safetensors",
+    "device_support": [
+      "cpu",
+      "cuda"
+    ],
+    "minimum_ram_gb": 4,
+    "recommended_ram_gb": 8
+  },
+  
+  "usage": {
+    "python": "from loader import load_model; model = load_model('./model'); embedding = model.encode('text')",
+    "api": "python api_wrapper.py --port 8000",
+    "endpoints": [
+      "/embed",
+      "/similarity",
+      "/search",
+      "/cluster",
+      "/info"
+    ]
+  },
+  
+  "installation": {
+    "step1": "pip install -r requirements.txt",
+    "step2": "python loader.py ./model test",
+    "step3": "python api_wrapper.py --port 8000"
+  },
+  
+  "features": [
+    "Embeddings de alta dimensionalidad (768)",
+    "Multilingüe (incluyendo español)",
+    "Especializado en vocabulario IT/Reclutamiento",
+    "API REST para integración fácil",
+    "Clustering y búsqueda incluidos",
+    "Portabilidad garantizada"
+  ],
+  
+  "dependencies": {
+    "pytorch": ">=1.10.0",
+    "sentence-transformers": ">=2.2.0",
+    "numpy": ">=1.21.0",
+    "scikit-learn": ">=0.24.0",
+    "fastapi": ">=0.95.0 (solo para API)",
+    "uvicorn": ">=0.21.0 (solo para API)"
+  },
+  
+  "license": "CC-BY-SA-4.0",
+  "author": "Recruitment Automation Project",
+  "contact": "support@recruitment-automation.local"
+}

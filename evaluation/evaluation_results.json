@@ -1,0 +1,216 @@
+{
+  "inference_speed": {
+    "total_texts": 100,
+    "total_time_seconds": 4.485250473022461,
+    "texts_per_second": 22.295298913956376,
+    "ms_per_text": 44.85250473022461,
+    "embeddings_shape": [
+      100,
+      768
+    ]
+  },
+  "similarity_metrics": {
+    "test_pairs": 9,
+    "similarity_scores": [
+      0.8649119734764099,
+      0.9984570741653442,
+      0.6446090936660767,
+      0.9974089860916138,
+      0.7898737788200378,
+      0.8837777376174927,
+      0.40428534150123596,
+      0.7260352373123169,
+      0.6225192546844482
+    ],
+    "mean_similarity": 0.7702087197038863,
+    "std_similarity": 0.18239434519025197,
+    "min_similarity": 0.40428534150123596,
+    "max_similarity": 0.9984570741653442,
+    "accuracy_on_test_pairs": 0.4444444444444444,
+    "test_results": [
+      {
+        "pair": "python developer <-> python engineer",
+        "similarity": 0.8649,
+        "expected": 0.9,
+        "correct": true
+      },
+      {
+        "pair": "java developer <-> java programmer",
+        "similarity": 0.9985,
+        "expected": 0.9,
+        "correct": true
+      },
+      {
+        "pair": "senior developer <-> senior engineer",
+        "similarity": 0.6446,
+        "expected": 0.85,
+        "correct": false
+      },
+      {
+        "pair": "frontend developer <-> backend developer",
+        "similarity": 0.9974,
+        "expected": 0.7,
+        "correct": false
+      },
+      {
+        "pair": "data scientist <-> machine learning engineer",
+        "similarity": 0.7899,
+        "expected": 0.7,
+        "correct": true
+      },
+      {
+        "pair": "project manager <-> scrum master",
+        "similarity": 0.8838,
+        "expected": 0.6,
+        "correct": false
+      },
+      {
+        "pair": "python developer <-> marketing manager",
+        "similarity": 0.4043,
+        "expected": 0.3,
+        "correct": true
+      },
+      {
+        "pair": "cloud engineer <-> accountant",
+        "similarity": 0.726,
+        "expected": 0.2,
+        "correct": false
+      },
+      {
+        "pair": "devops engineer <-> graphic designer",
+        "similarity": 0.6225,
+        "expected": 0.2,
+        "correct": false
+      }
+    ]
+  },
+  "search_quality": {
+    "query": "senior python developer with machine learning experience",
+    "candidates_count": 10,
+    "relevant_count": 6,
+    "mrr": 1.0,
+    "ndcg": 0.9930783166417602,
+    "precisions": {
+      "precision@3": 1.0,
+      "precision@5": 1.0,
+      "precision@10": 0.6
+    },
+    "top_results": [
+      {
+        "rank": 1,
+        "candidate": "python and machine learning specialist",
+        "similarity": 0.9939,
+        "relevant": true
+      },
+      {
+        "rank": 2,
+        "candidate": "python developer 5 years experience",
+        "similarity": 0.9643,
+        "relevant": true
+      },
+      {
+        "rank": 3,
+        "candidate": "python backend developer",
+        "similarity": 0.9631,
+        "relevant": true
+      },
+      {
+        "rank": 4,
+        "candidate": "data scientist with python",
+        "similarity": 0.9477,
+        "relevant": true
+      },
+      {
+        "rank": 5,
+        "candidate": "senior python engineer ml",
+        "similarity": 0.8895,
+        "relevant": true
+      }
+    ]
+  },
+  "clustering_quality": {
+    "texts_count": 9,
+    "clusters_count": 3,
+    "average_cohesion": 0.542726993560791,
+    "clusters": {
+      "cluster_0": [
+        "frontend developer javascript",
+        "react developer",
+        "vue.js developer"
+      ],
+      "cluster_1": [
+        "data scientist",
+        "machine learning engineer",
+        "data engineer"
+      ],
+      "cluster_2": [
+        "python developer 5 years",
+        "senior python engineer",
+        "python programmer"
+      ]
+    }
+  },
+  "embedding_distribution": {
+    "embeddings_count": 12,
+    "embedding_dimension": 768,
+    "norm_statistics": {
+      "mean": 3.4918079376220703,
+      "std": 0.19293420016765594,
+      "min": 3.086155891418457,
+      "max": 3.761401891708374
+    },
+    "similarity_statistics": {
+      "mean": 0.5794152617454529,
+      "std": 0.24535362422466278,
+      "min": 0.0,
+      "max": 0.914431631565094
+    },
+    "top_5_eigenvalues": [
+      1.3432462509604355,
+      0.983322728268395,
+      0.7546968347706322,
+      0.5305335679918366,
+      0.3663268686771354
+    ]
+  },
+  "multilingual": {
+    "languages_tested": 5,
+    "language_performance": {
+      "english": {
+        "similarity_scores": [
+          0.8649119734764099
+        ],
+        "mean": 0.8649119734764099,
+        "std": 0.0
+      },
+      "spanish": {
+        "similarity_scores": [
+          0.948158860206604
+        ],
+        "mean": 0.948158860206604,
+        "std": 0.0
+      },
+      "portuguese": {
+        "similarity_scores": [
+          0.9201169013977051
+        ],
+        "mean": 0.9201169013977051,
+        "std": 0.0
+      },
+      "french": {
+        "similarity_scores": [
+          0.9279419183731079
+        ],
+        "mean": 0.9279419183731079,
+        "std": 0.0
+      },
+      "german": {
+        "similarity_scores": [
+          0.9535810947418213
+        ],
+        "mean": 0.9535810947418213,
+        "std": 0.0
+      }
+    }
+  }
+}

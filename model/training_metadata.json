@@ -1,0 +1,31 @@
+{
+  "timestamp": "2025-12-30T00:52:31.820662",
+  "model_name": "sentence-transformers/paraphrase-multilingual-mpnet-base-v2",
+  "training_type": "multi-loss",
+  "datasets": {
+    "main": {
+      "csv": "training/generate_csv/it_training_data.csv",
+      "loss": "CosineSimilarityLoss",
+      "num_examples": 5000
+    },
+    "triplets": {
+      "csv": "training/generate_csv/it_triplets_train.csv",
+      "loss": "TripletLoss",
+      "num_examples": 3000,
+      "margin": 0.5
+    },
+    "similar": {
+      "csv": "training/generate_csv/it_similar_pairs.csv",
+      "loss": "MultipleNegativesRankingLoss",
+      "num_examples": 2000
+    }
+  },
+  "training_config": {
+    "epochs": 3,
+    "batch_size": 16,
+    "warmup_steps": 500,
+    "learning_rate": 2e-05,
+    "total_examples": 10000
+  },
+  "output_directory": "modelo_entrenado_multiloss"
+}
